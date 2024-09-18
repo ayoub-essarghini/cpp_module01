@@ -8,9 +8,7 @@ Zombie* zombieHorde( int N, std::string name )
 
     for (int i = 0; i < N; i++)
     {
-        std::stringstream ss;
-        ss << name << i;
-        horde[i] = Zombie(ss.str());
+        horde[i] = Zombie(name);
     }
 
     return horde;

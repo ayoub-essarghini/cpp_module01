@@ -2,10 +2,8 @@
 #ifndef Zombie_HPP
 # define Zombie_HPP
 
-
 #include <iostream>
 #include <string>
-#include <sstream>
 
 class Zombie{
 
