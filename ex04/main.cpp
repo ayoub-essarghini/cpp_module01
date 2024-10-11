@@ -4,7 +4,8 @@
 
 void replace_occurence(std::string &str, std::string &old_str, std::string &new_str)
 {
-
+    if (new_str == old_str)
+        return;
     while (1)
     {
         std::string::size_type pos = str.find(old_str);

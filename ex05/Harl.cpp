@@ -35,12 +35,19 @@ void nofunc(std::string name)
 
 void Harl::complain(std::string level)
 {
- 
-    void (Harl::*funcPtr)() = NULL;
-
-    funcPtr = (level == "DEBUG") ? &Harl::debug : (level == "INFO")  ? &Harl::info
-                                              : (level == "WARNING") ? &Harl::warning
-                                              : (level == "ERROR")   ? &Harl::error
-                                                                     : NULL;
-    funcPtr != NULL ? (this->*funcPtr)() : nofunc(level);
+    std::string levels[] = {"DEBUG", "INFO","WARNING", "ERROR"};
+    void (Harl::*functions[])() = {&Harl::debug,&Harl::info,&Harl::warning,&Harl::error};
+    int i = 0;
+    while (i < 4 && levels[i] != level)
+        i++;
+    switch (i)
+    {
+    case 4:
+        nofunc(level);
+        break;
+    default:
+        (this->*functions[i])();
+        break;
+    }
+    
 }
